@@ -1,7 +1,6 @@
 // STEP-1 : IMPORT MONGOOSE PACKAGE
 require("dotenv").config();
 const mongoose = require('mongoose');
-const UserModel = require('./user_schema.js');
 
 // Database Connection URL
 //Mongoose is an Object Document Mapper (ODM)

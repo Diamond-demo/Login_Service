@@ -11,7 +11,8 @@ const UserModel = require('./user_schema.js');
 
 require('dotenv').config(); 
 
-const JWT_SECRETE = process.env.JWT_SECRETE;
+const JWT_SECRET = process.env.JWT_SECRET;
+const PORT = 5002;
 
 
 //REG API
@@ -35,7 +36,7 @@ app.post('/login', async (req, res) => {
     // Generate JWT Token
     const token = jwt.sign(
       { userId: user._id, username: user.username, role: user.role },
-      JWT_SECRETE,
+      JWT_SECRET,
       { expiresIn: '1h' } // Token expires in 1 hour
     );
 
@@ -48,4 +49,4 @@ app.post('/login', async (req, res) => {
 
 
 // START THE EXPRESS SERVER. 5000 is the PORT NUMBER
-app.listen(5001, () => console.log('EXPRESS Server Started at Port No: 5001'));
+app.listen(PORT, () => console.log('EXPRESS Server Started at Port No: ' + PORT));
